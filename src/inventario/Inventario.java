@@ -5,10 +5,15 @@
  */
 package inventario;
 
+import dao.FiltroDao;
+import java.util.ArrayList;
+import java.util.Scanner;
+import modelo.Filtro;
+
 /**
  *
  * @author UCA
  */
 public class Inventario {
-    
+
 }

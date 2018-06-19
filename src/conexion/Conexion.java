@@ -16,13 +16,8 @@ import java.util.logging.Logger;
  * @author UCA
  */
 public class Conexion {
-    private String user;
-    private String pass;
-    private String driver;
-    private String url;
-    
+    private String user, pass,driver,url;
     private Connection cnx;
-    
     public static Conexion instance;
     
     public synchronized static Conexion conectar(){
@@ -34,27 +29,23 @@ public class Conexion {
     
     private Conexion(){
         cargarCredenciales();
-        
         try{
             Class.forName(this.driver);
             cnx = (Connection) DriverManager.getConnection(this.url,this.user,this.pass);
-        }catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE,null,ex);
+        }catch(ClassNotFoundException | SQLException ex){
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     private void cargarCredenciales(){
         user = "root";
-        pass = "";
-        driver = "com.mysql.jdbc.Driver";
+        pass ="";
+        driver ="com.mysql.jdbc.Driver";
         url = "jdbc:mysql://localhost/filtros";
     }
-    
-    public Connection getCnx() {
+    public Connection getCnx(){
         return cnx;
     }
-    
     public void cerrarConexion(){
-        instance= null;
+        instance = null;
     }
 }

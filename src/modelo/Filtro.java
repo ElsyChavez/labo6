@@ -10,33 +10,27 @@ package modelo;
  * @author UCA
  */
 public class Filtro {
-    private int id;
-    private String codigo;
-    private String marca;
-    private int stock;
-    private boolean existencia;
-    
-    public Filtro(){
-    }
+    private int id,stock;
+    private String codigo, marca;
+   private boolean existencia;
+   public Filtro(){}
 
-    public Filtro(int id, String codigo, String marca, int stock, boolean existencia) {
+    public Filtro(int id, String codigo, String marca,int stock, boolean existencia) {
         this.id = id;
+        this.stock = stock;
         this.codigo = codigo;
         this.marca = marca;
-        this.stock = stock;
         this.existencia = existencia;
     }
-
-    public Filtro(String codigo, String marca, int stock, boolean existencia) {
+    public Filtro(int stock, String codigo, String marca, boolean existencia) {
+        this.stock = stock;
         this.codigo = codigo;
         this.marca = marca;
-        this.stock = stock;
         this.existencia = existencia;
     }
-
-    public Filtro(String marca, int stock, boolean existencia) {
-        this.marca = marca;
+    public Filtro(int stock, String marca, boolean existencia) {
         this.stock = stock;
+        this.marca = marca;
         this.existencia = existencia;
     }
 
@@ -46,6 +40,14 @@ public class Filtro {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getCodigo() {
@@ -64,23 +66,18 @@ public class Filtro {
         this.marca = marca;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public boolean isExistencia() {
+    public boolean getExistencia() {
         return existencia;
     }
 
     public void setExistencia(boolean existencia) {
         this.existencia = existencia;
     }
+
+    @Override
+    public String toString() {
+        return "Filtro{" + "id=" + id + ", stock=" + stock + ", codigo=" + codigo + ", marca=" + marca + ", existencia=" + existencia + '}';
+    }
     
-    
-    
-    
+   
 }
